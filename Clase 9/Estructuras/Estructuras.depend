@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1524753613 source:d:\clase 9\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Estructuras.h"
+	"Localidad.h"
+
+1524752285 d:\clase 9\estructuras\estructuras.h
+
+1524754138 d:\clase 9\estructuras\localidad.h
+
+1524754003 source:d:\clase 9\estructuras\localidad.c
+	"Localidad.h"
+
