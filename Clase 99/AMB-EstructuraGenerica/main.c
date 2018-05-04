@@ -29,11 +29,13 @@ int main()
 */
     int main()
 {
-   char seguir='s';
-    int opcion=0,id;
+    char seguir='s';
+    int opcion=0;
 
     eUsuario listadoUsuario[CANTIDADUSUARIO];
     eUser_init(listadoUsuario, CANTIDADUSUARIO);
+    eProducto listadoProducto[CANTIDADPRODUCTO];
+    eProducto_init(listadoProducto, CANTIDADPRODUCTO);
 
     while(seguir=='s')
     {
@@ -54,39 +56,47 @@ int main()
         switch(opcion)
         {
             case 1:
-                system("cls");
+                //system("cls");
                 eUser_alta(listadoUsuario,CANTIDADUSUARIO);
                 break;
             case 2:
-                system("cls");
+                //system("cls");
                 eUser_modificacion(listadoUsuario, CANTIDADUSUARIO);
                 break;
             case 3:
-                system("cls");
+                //system("cls");
                 eUser_baja(listadoUsuario, CANTIDADUSUARIO);
                 break;
             case 4:
-                system("cls");
-
+                //system("cls");
+                publicarProducto(listadoUsuario, CANTIDADUSUARIO, listadoProducto, CANTIDADPRODUCTO);
                 break;
             case 5:
-                system("cls");
-
+                //system("cls");
+                eProd_modificacion(listadoUsuario, CANTIDADUSUARIO, listadoProducto, CANTIDADPRODUCTO);
                 break;
             case 6:
-                system("cls");
-
+                //system("cls");
+                eProd_Baja(listadoUsuario,CANTIDADUSUARIO,listadoProducto,CANTIDADPRODUCTO);
                 break;
             case 7:
-                system("cls");
+                //system("cls");
 
                 break;
             case 8:
-                system("cls");
+                //system("cls");
 
                 break;
             case 9:
-                system("cls");
+                //system("cls");
+
+                break;
+            case 10:
+               //system("cls");
+
+                break;
+            case 11:
+                //system("cls");
                 seguir = 'n';
                 break;
         }

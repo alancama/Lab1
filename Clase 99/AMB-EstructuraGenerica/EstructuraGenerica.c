@@ -5,7 +5,7 @@
 #define TAMANIO 10
 #define OCUPADO 0
 #define LIBRE 1
-
+#define BORRADO -1
 
 
 int eUser_init( eUsuario listado[],int limite)
@@ -89,7 +89,7 @@ int eUser_buscarPorId(eUsuario listado[] ,int limite, int id)
 
 int eUser_mostrarUno(eUsuario parametro)
 {
-     printf("\n %s - %d - %d",parametro.nombre,parametro.idUsuario,parametro.estado);
+     printf("\n Nombre: %s - ID: %d - Estado: %d",parametro.nombre,parametro.idUsuario,parametro.estado);
 
 }
 
@@ -180,8 +180,10 @@ int eUser_modificacion(eUsuario listadoUsuario[] ,int CANTIDADUSUARIO)
 
         printf("\nIngrese nombre:");
         fflush(stdin);
-        gets(listadoUsuario[indiceUsuario].nombre);
+        scanf("%s",listadoUsuario[indiceUsuario].nombre);
     }
+
+    return;
 }
 
 int eUser_baja(eUsuario listadoUsuario[],int CANTIDADUSUARIO)
@@ -198,37 +200,217 @@ int eUser_baja(eUsuario listadoUsuario[],int CANTIDADUSUARIO)
     {
         eUser_mostrarUno(listadoUsuario[indiceUsuario]);
 
-        strcpy(listadoUsuario[indiceUsuario].nombre, "");
-        listadoUsuario[indiceUsuario].estado=0;
-        listadoUsuario[indiceUsuario].idUsuario=0;
+        //strcpy(listadoUsuario[indiceUsuario].nombre, "");
+        listadoUsuario[indiceUsuario].estado=BORRADO;
+        //listadoUsuario[indiceUsuario].idUsuario=0;
 
         printf("\n");
         eUser_mostrarUno(listadoUsuario[indiceUsuario]);
         printf("\n");
     }
+
+    return;
 }
+
+int eProducto_init( eProducto listado[],int limite)
+{
+    int retorno = -1;
+    int i;
+    if(limite > 0 && listado != NULL)
+    {
+        retorno = 0;
+        for(i=0; i<limite; i++)
+        {
+            listado[i].estado= LIBRE;
+            listado[i].idProducto= 0;
+        }
+    }
+    return retorno;
+}
+
+int eProd_buscarLugarLibre(eProducto listado[],int limite)
+{
+    int retorno = -1;
+    int i;
+    if(limite > 0 && listado != NULL)
+    {
+        retorno = -2;
+        for(i=0;i<limite;i++)
+        {
+            if(listado[i].estado == LIBRE)
+            {
+                retorno = i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+int eProd_siguienteId(eProducto listado[],int limite)
+{
+    int retorno = 0;
+    int i;
+    if(limite > 0 && listado != NULL)
+    {
+        for(i=0; i<limite; i++)
+        {
+            if(listado[i].estado == OCUPADO)
+            {
+                    if(listado[i].idProducto>retorno)
+                    {
+                         retorno=listado[i].idProducto;
+                    }
+
+            }
+        }
+    }
+
+    return retorno+1;
+}
+
+
+int eProd_buscarPorId(eProducto listado[] ,int limite, int id)
+{
+    int retorno = -1;
+    int i;
+    if(limite > 0 && listado != NULL)
+    {
+        retorno = -2;
+        for(i=0;i<limite;i++)
+        {
+            if(listado[i].estado == OCUPADO && listado[i].idProducto == id)
+            {
+                retorno = i;
+                break;
+            }
+        }
+    }
+    return retorno;
+}
+
+int eProd_mostrarListadoPorIdUsuario(eProducto listado[],int limite, eUsuario listadoUsuario[],int limiteUsuario,int idUsuario)
+{
+    int retorno = -1;
+    int i;
+
+    if(limite > 0 && listado != NULL)
+    {
+        retorno = 0;
+        for(i=0; i<limite; i++)
+        {
+            if(listado[i].estado==OCUPADO && listado[i].idUsuario==idUsuario)
+            {
+
+                printf("Nombre Producto: %s - ID Producto: %d - Precio Producto: %.2f - Stock: %d",listado[i].nombreProducto,listado[i].idProducto,listado[i].precio,listado[i].stock);
+            }
+
+        }
+    }
+    return retorno;
+}
+
+int eProd_mostrarUno(eProducto parametro)
+{
+     printf("\n Nombre Producto: %s - ID Producto: %d - Stock: %d - Estado: %d",parametro.nombreProducto,parametro.idProducto,parametro.stock,parametro.estado);
+
+}
+
 
 int publicarProducto(eUsuario listadoUsuario[],int CANTIDADUSUARIO,eProducto productos[],int CANTIDADPRODUCTO)
 {
-    int id,indiceUsuario,stock,precio;
+    int id,indiceProducto,stock,precio,idProducto;
     eUser_mostrarListado(listadoUsuario, CANTIDADUSUARIO);
-
     printf("\nIngrese ID de usuario a publicar");
 
      scanf("%d",&id);
 
-    indiceUsuario=eUser_buscarPorId(listadoUsuario, CANTIDADUSUARIO, id);
+    indiceProducto=eProd_buscarLugarLibre(productos,CANTIDADPRODUCTO);//COMPLETAMEEEEEEEEEEEEEEEEEEEEE
 
-    if(indiceUsuario>=0)
+    if(indiceProducto>=0)
     {
-        printf("\nIngrese nombre: ");
+        idProducto=eProd_siguienteId(productos,CANTIDADPRODUCTO);
+
+        printf("\nIngrese nombre de producto: ");
         fflush(stdin);
-        gets(productos[indiceUsuario].nombreProducto);
+        scanf("%s",productos[indiceProducto].nombreProducto);//PARA EL PARCIAL CAMBIAR A GETS();
+
+        printf("\nIngrese stock: ");
+        scanf("%d",&productos[indiceProducto].stock);
+
 
         printf("\nIngrese precio del producto: ");
-        scanf("%d",&productos[indiceUsuario].precio);
+        scanf("%f",&productos[indiceProducto].precio);
 
-        printf("\nIngrese stock: ")
-        scanf("%d",&productos[indiceUsuario].precio);//Copiar el buscar id, el incializar en cero, y el buscar lugar libre y hacerlos para producto en vez de usuario
+        productos[indiceProducto].idUsuario=id;
+        productos[indiceProducto].estado=OCUPADO;
+        productos[indiceProducto].idProducto=idProducto;
+
     }
+
+
+    return;
+}
+
+int eProd_modificacion(eUsuario listadoUsuario[] ,int CANTIDADUSUARIO, eProducto listadoProducto[], int CANTIDADPRODUCTO)//FALTAN VERIFICACIONES
+{
+    eUser_mostrarListado(listadoUsuario, CANTIDADUSUARIO);
+
+    int idUsuario,indiceUsuario,idProducto,indiceProducto;
+
+
+    printf("\nIngrese ID de Usuario: ");
+    scanf("%d",&idUsuario);
+
+    indiceUsuario=eUser_buscarPorId(listadoUsuario, CANTIDADUSUARIO, idUsuario);
+
+
+    eProd_mostrarListadoPorIdUsuario(listadoProducto,CANTIDADPRODUCTO,listadoUsuario,CANTIDADUSUARIO,idUsuario);
+
+    printf("Ingrese ID de Producto: ");
+    scanf("%d",&idProducto);
+
+    indiceProducto=eProd_buscarPorId(listadoProducto,CANTIDADPRODUCTO,idProducto);
+
+    if(indiceProducto>=0)
+    {
+        printf("Ingrese nuevo nombre de producto: ");
+        scanf("%s",listadoProducto[indiceProducto].nombreProducto);
+
+        printf("Ingrese nuevo precio: ");
+        scanf("%f",&listadoProducto[indiceProducto].precio);
+
+        printf("Ingrese stock: ");
+        scanf("%d",&listadoProducto[indiceProducto].stock);
+    }
+
+    return;
+}
+
+int eProd_Baja(eUsuario listadoUsuario[] ,int CANTIDADUSUARIO, eProducto listadoProducto[], int CANTIDADPRODUCTO)//FALTAN VERIFICACIONES
+{
+    eUser_mostrarListado(listadoUsuario, CANTIDADUSUARIO);
+
+    int idUsuario,indiceUsuario,idProducto,indiceProducto;
+
+
+    printf("\nIngrese ID de Usuario: ");
+    scanf("%d",&idUsuario);
+
+    indiceUsuario=eUser_buscarPorId(listadoUsuario, CANTIDADUSUARIO, idUsuario);
+
+
+    eProd_mostrarListadoPorIdUsuario(listadoProducto,CANTIDADPRODUCTO,listadoUsuario,CANTIDADUSUARIO,idUsuario);
+
+    printf("\nIngrese ID de Producto: ");
+    scanf("%d",&idProducto);
+
+    indiceProducto=eProd_buscarPorId(listadoProducto,CANTIDADPRODUCTO,idProducto);
+
+    if(indiceProducto>=0)
+    {
+        listadoProducto[indiceProducto].estado=BORRADO;
+    }
+
+    return;
 }
