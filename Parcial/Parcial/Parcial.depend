@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1525963023 source:c:\users\alumno\desktop\parcial\parcial\estructuras.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructuras.h"
+
+1525962860 c:\users\alumno\desktop\parcial\parcial\estructuras.h
+
+1525962860 source:c:\users\alumno\desktop\parcial\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estructuras.h"
+
