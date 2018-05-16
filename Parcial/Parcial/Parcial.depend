@@ -12,3 +12,26 @@
 	<stdlib.h>
 	"estructuras.h"
 
+1526514501 source:c:\users\ezequiel\desktop\parcial\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"autos.h"
+
+1526514343 c:\users\ezequiel\desktop\parcial\parcial\estructuras.h
+
+1526514358 source:c:\users\ezequiel\desktop\parcial\parcial\estructuras.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"estructuras.h"
+	<time.h>
+
+1526514343 source:c:\users\ezequiel\desktop\parcial\parcial\autos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autos.h"
+
+1526514358 c:\users\ezequiel\desktop\parcial\parcial\autos.h
+	"estructuras.h"
+
