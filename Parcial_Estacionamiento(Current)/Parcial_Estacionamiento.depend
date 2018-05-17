@@ -1,0 +1,74 @@
+# depslib dependency file v1.0
+1526154280 source:c:\users\creaven\desktop\pp_lab\parcial_estacionamiento\funciones.c
+	"funciones.h"
+
+1526072527 c:\users\creaven\desktop\pp_lab\parcial_estacionamiento\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1526154417 source:c:\users\creaven\desktop\pp_lab\parcial_estacionamiento\main.c
+	"funciones.h"
+
+1526307650 source:c:\users\franas\desktop\pp_lab\parcial_estacionamiento(current)\funciones.c
+	"funciones.h"
+
+1526307638 c:\users\franas\desktop\pp_lab\parcial_estacionamiento(current)\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+
+1526307682 source:c:\users\franas\desktop\pp_lab\parcial_estacionamiento(current)\main.c
+	"funciones.h"
+
+1526438344 source:c:\users\creaven\desktop\pp_lab\parcial_estacionamiento(current)\funciones.c
+	"funciones.h"
+
+1526436088 c:\users\creaven\desktop\pp_lab\parcial_estacionamiento(current)\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+	<time.h>
+
+1526427474 source:c:\users\creaven\desktop\pp_lab\parcial_estacionamiento(current)\main.c
+	"funciones.h"
+
+1526506758 source:c:\users\franas\desktop\parcial_estacionamiento(current)\funciones.c
+	"funciones.h"
+
+1526506437 c:\users\franas\desktop\parcial_estacionamiento(current)\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+	<time.h>
+
+1526485408 source:c:\users\franas\desktop\parcial_estacionamiento(current)\main.c
+	"funciones.h"
+
+1526507656 source:c:\users\ezequiel\desktop\parcial_estacionamiento(current)\funciones.c
+	"funciones.h"
+
+1526506437 c:\users\ezequiel\desktop\parcial_estacionamiento(current)\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+	<time.h>
+
+1526485408 source:c:\users\ezequiel\desktop\parcial_estacionamiento(current)\main.c
+	"funciones.h"
+
