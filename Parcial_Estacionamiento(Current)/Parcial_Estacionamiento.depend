@@ -72,3 +72,18 @@
 1526485408 source:c:\users\ezequiel\desktop\parcial_estacionamiento(current)\main.c
 	"funciones.h"
 
+1527093151 source:c:\users\ezequiel\desktop\lab1-master\parcial_estacionamiento(current)\funciones.c
+	"funciones.h"
+
+1527093151 c:\users\ezequiel\desktop\lab1-master\parcial_estacionamiento(current)\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+	<time.h>
+
+1527093151 source:c:\users\ezequiel\desktop\lab1-master\parcial_estacionamiento(current)\main.c
+	"funciones.h"
+
