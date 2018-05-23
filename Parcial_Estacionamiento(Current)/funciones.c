@@ -5,19 +5,16 @@ int Menu(void)
 {
     int opcion;
     system("cls");
-    printf("\n¿Que desea hacer?\n\n");
-    printf("~Administracion de propietarios~\n");
-    printf("~1-Alta Propietario~\n");
-    printf("~2-Modificar Tarjeta de Credito~\n");
-    printf("~3-Baja Propietario~\n\n");
-    printf("~Administracion de automoviles~\n");
-    printf("~4-Ingreso Automovil~\n");
-    printf("~5-Egreso Automovil~\n\n");
-    printf("~Funciones~\n");
-    printf("~6-Listas~\n");
-    printf("~7-Recaudaciones~\n\n");
-    printf("~8-Buscar Propietario~\n\n");
-    printf("~0-Salir~\n\n\n\n");
+    printf("\nÂ¿Que desea hacer?\n\n");
+    printf("1-Alta Propietario\n");
+    printf("2-Modificar Tarjeta de Credito\n");
+    printf("3-Baja Propietario\n");
+    printf("4-Ingreso Automovil\n");
+    printf("5-Egreso Automovil\n");
+    printf("6-Listas\n");
+    printf("7-Recaudaciones\n");
+    printf("8-Buscar Propietario\n");
+    printf("0-Salir\n");
 
     printf("Ingrese opcion: ");
     fflush(stdin);
@@ -59,7 +56,7 @@ int listarPropietarios(EPersona Persona[],int valor)
 
 
     system("cls");
-    printf("\n\n~ID~\t~Nombre~\t\t\t~Tarjeta de Credito~\t\t~Direccion~\n\n");
+    printf("\n\nID\tNombre\t\t\tTarjeta de Credito\t\tDireccion\n\n");
     for(int i=0; i<valor; i++)
     {
         if(Persona[i].Estado==1)
@@ -97,7 +94,7 @@ int listarAutos(EAuto Auto[],EPersona Persona[],int valor)
 {
     int flag=1;
     system("cls");
-    printf("\n~Lista de Autos en el estacionamiento~\n\nLugar\tPatente\t\t\tMarca\t\t\tPropietario\t\t\t\n\n");
+    printf("\nLista de Autos en el estacionamiento\n\nLugar\tPatente\t\t\tMarca\t\t\tPropietario\t\t\t\n\n");
     for(int i=0; i<valor; i++)
     {
         if(Auto[i].Estado==1)
@@ -158,7 +155,7 @@ int listarAutosxPatente(EAuto Auto[],EPersona Persona[],int valor)
     ordenarPatente(auxAuto,valor);
 
     system("cls");
-    printf("\n~Lista de Autos en el estacionamiento~\n\nLugar\tPatente\t\t\tMarca\t\t\tPropietario\t\t\t\n\n");
+    printf("\nLista de Autos en el estacionamiento\n\nLugar\tPatente\t\t\tMarca\t\t\tPropietario\t\t\t\n\n");
     for(int i=0; i<valor; i++)
     {
         if(auxAuto[i].Estado==1)
@@ -227,8 +224,8 @@ int listarPropietariosAudi(EPersona Persona[],EAuto Auto[],int valor)
         }
     }
     system("cls");
-    printf("\n\t\t\t\t\t~Propietarios de Audis~\n\n");
-    printf("\n\n~ID~\t~Nombre~\t\t\t~Tarjeta de Credito~\t\t~Direccion~\t\t~Numero de audis~\n\n");
+    printf("\n\t\t\t\t\tPropietarios de Audis\n\n");
+    printf("\n\nID\tNombre\t\t\tTarjeta de Credito\t\tDireccion\t\tNumero de audis\n\n");
     for(i=0; i<valor; i++)
     {
 
@@ -282,7 +279,7 @@ int recaudacionTotal(EOutput Output[],EPersona Persona[],int valor,int out)
     int acumNeto=0;
 
     system("cls");
-    printf("\n~Lista de Autos egresados~\n\nEgreso n\tPatente\t\tMarca\t\tPropietario\t\tHoras/Monto\t\n\n");
+    printf("\nLista de Autos egresados\n\nEgreso n\tPatente\t\tMarca\t\tPropietario\t\tHoras/Monto\t\n\n");
     for(int i=0; i<out; i++)
     {
         if(Output[i].Estado==1)
@@ -328,7 +325,7 @@ int recaudacionTotal(EOutput Output[],EPersona Persona[],int valor,int out)
         acumNeto=acumNeto + Output[j].Monto;
     }
 
-    printf("\n\n\n\n\t\t\t\t~El monto de la recaudacion total es de: $%d~\n\n\n",acumNeto);
+    printf("\n\n\n\n\t\t\t\tEl monto de la recaudacion total es de: $%d\n\n\n",acumNeto);
 
     if(flag)
     {
@@ -357,7 +354,7 @@ int recaudacionPorMarca(EOutput Output[],EPersona Persona[],int valor,int out)
     scanf("%d",&opcion);
 
     system("cls");
-    printf("\n~Lista de Autos egresados~\n\nEgreso n\tPatente\t\tMarca\t\tPropietario\t\tHoras/Monto\t\n\n");
+    printf("\nLista de Autos egresados\n\nEgreso n\tPatente\t\tMarca\t\tPropietario\t\tHoras/Monto\t\n\n");
     for(int i=0; i<out; i++)
     {
         if((Output[i].Estado==1) && (Output[i].Marca==opcion))
@@ -401,7 +398,7 @@ int recaudacionPorMarca(EOutput Output[],EPersona Persona[],int valor,int out)
     }
 
 
-    printf("\n\n\n\n\t\t\t\t~El monto de la recaudacion total de la marca es de: $%d~\n\n\n",acumNeto);
+    printf("\n\n\n\n\t\t\t\tEl monto de la recaudacion total de la marca es de: $%d\n\n\n",acumNeto);
 
     if(flag)
     {
@@ -488,7 +485,7 @@ int noVoid(char str[])
         i++;
     }
     system("cls");
-    printf("\n\n\n\t\t\t\t\t~El dato que ingreso esta vacio~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+    printf("\n\n\n\t\t\t\t\tEl dato que ingreso esta vacio\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
     system("pause");
     return 0;
 }
@@ -673,7 +670,7 @@ void transferirEstructuraPersona(EPersona Persona[],char nombre[],char tarjeta[]
     system("pause");
     system("cls");
 
-    printf("\n\n\n\t\t\t\t\t~Se ha dado de alta satisfactoriamente~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+    printf("\n\n\n\t\t\t\t\tSe ha dado de alta satisfactoriamente\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
     system("pause");
 }
 
@@ -714,7 +711,7 @@ void transferirEstructuraAuto(EAuto Auto[],EPersona Persona[],char patente[],int
     system("pause");
     system("cls");
 
-    printf("\n\n\n\t\t\t\t\t~Se ha dado de alta satisfactoriamente~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+    printf("\n\n\n\t\t\t\t\tSe ha dado de alta satisfactoriamente\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
     system("pause");
 
 
@@ -783,7 +780,7 @@ void egresoAuto(EAuto Auto[],EPersona Persona[],EOutput Output[],int lugar,int t
     system("pause");
     system("cls");
 
-    printf("\n\n\n\t\t\t\t\t~Se ha retirado el auto correctamente~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+    printf("\n\n\n\t\t\t\t\tSe ha retirado el auto correctamente\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
     system("pause");
 }
 
@@ -794,11 +791,11 @@ void listas(EPersona Persona[], EAuto Auto[], int valor)
     int opcion;
 
 
-    printf("\n~Menu Listas: ~\n\n");
-    printf("~1-Lista de socios~\n");
-    printf("~2-Lista de Autos x ingreso~\n");
-    printf("~3-Lista de Autos x patente~\n");
-    printf("~4-Socios propietarios de audis~\n");
+    printf("\nMenu Listas: \n\n");
+    printf("1-Lista de socios\n");
+    printf("2-Lista de Autos x ingreso\n");
+    printf("3-Lista de Autos x patente\n");
+    printf("4-Socios propietarios de audis\n");
     scanf("%d",&opcion);
 
     switch(opcion)
@@ -807,7 +804,7 @@ void listas(EPersona Persona[], EAuto Auto[], int valor)
 
         if(!listarPropietarios(Persona,valor))
         {
-            printf("\n\n\n\t\t\t\t\t~No hay propietarios~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+            printf("\n\n\n\t\t\t\t\tNo hay propietarios\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
             system("pause");
         }
         break;
@@ -815,7 +812,7 @@ void listas(EPersona Persona[], EAuto Auto[], int valor)
     case 2:
         if(!listarAutos(Auto,Persona,valor))
         {
-            printf("\n\n\n\t\t\t\t\t~No hay Autos~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+            printf("\n\n\n\t\t\t\t\tNo hay Autos\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
             system("pause");
 
         }
@@ -824,7 +821,7 @@ void listas(EPersona Persona[], EAuto Auto[], int valor)
     case 3:
         if(!listarAutosxPatente(Auto,Persona,valor))
         {
-            printf("\n\n\n\t\t\t\t\t~No hay Autos~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+            printf("\n\n\n\t\t\t\t\tNo hay Autos\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
             system("pause");
 
         }
@@ -832,14 +829,14 @@ void listas(EPersona Persona[], EAuto Auto[], int valor)
     case 4:
         if(!listarPropietariosAudi(Persona,Auto,valor))
         {
-            printf("\n\n\n\t\t\t\t\t~No hay propietarios de audi~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+            printf("\n\n\n\t\t\t\t\tNo hay propietarios de audi\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
             system("pause");
         }
         break;
     default:
 
         system("cls");
-        printf("\n\n\n\t\t\t\t\t~Opcion erronea.~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+        printf("\n\n\n\t\t\t\t\tOpcion erronea.\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
         system("pause");
         break;
 
@@ -854,9 +851,9 @@ void recaudaciones(EPersona Persona[], EAuto Auto[],EOutput Output[],int valor,i
     int opcion;
 
 
-    printf("\n~Menu Recaudaciones: ~\n\n");
-    printf("~1-Recaudacion total del estacionamiento~\n");
-    printf("~2-Recaudacion total por marca~\n\nIngrese opcion: ");
+    printf("\nMenu Recaudaciones: \n\n");
+    printf("1-Recaudacion total del estacionamiento\n");
+    printf("2-Recaudacion total por marca\n\nIngrese opcion: ");
     scanf("%d",&opcion);
 
     switch(opcion)
@@ -865,7 +862,7 @@ void recaudaciones(EPersona Persona[], EAuto Auto[],EOutput Output[],int valor,i
 
         if(!recaudacionTotal(Output,Persona,valor,out))
         {
-            printf("\n\n\n\t\t\t\t\t~No hay egresos~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+            printf("\n\n\n\t\t\t\t\tNo hay egresos\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
             system("pause");
         }
         break;
@@ -873,7 +870,7 @@ void recaudaciones(EPersona Persona[], EAuto Auto[],EOutput Output[],int valor,i
     case 2:
         if(!recaudacionPorMarca(Output,Persona,valor,out))
         {
-            printf("\n\n\n\t\t\t\t\t~No hay egresos~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+            printf("\n\n\n\t\t\t\t\tNo hay egresos\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
             system("pause");
 
         }
@@ -882,7 +879,7 @@ void recaudaciones(EPersona Persona[], EAuto Auto[],EOutput Output[],int valor,i
     default:
 
         system("cls");
-        printf("\n\n\n\t\t\t\t\t~Opcion erronea.~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+        printf("\n\n\n\t\t\t\t\tOpcion erronea.\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
         system("pause");
         break;
 
@@ -897,7 +894,7 @@ void informarSocio(EPersona Persona[],EAuto Auto[],int valor)
 
     if(!listarPropietarios(Persona,valor))
     {
-        printf("\n\n\n\t\t\t\t\t~No hay propietarios~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+        printf("\n\n\n\t\t\t\t\tNo hay propietarios\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
         system("pause");
 
         return;
@@ -910,14 +907,14 @@ void informarSocio(EPersona Persona[],EAuto Auto[],int valor)
     indicePersona=buscarPorID(Persona,auxID,valor);
 
     system("cls");
-    printf("\n\t\t\t\t\t~Datos de: %s~\n\n",Persona[indicePersona].NombreCompleto);
+    printf("\n\t\t\t\t\tDatos de: %s\n\n",Persona[indicePersona].NombreCompleto);
     printf("ID: %d\n\n",Persona[indicePersona].ID);
     printf("Tarjeta de credito: %s\n\n",Persona[indicePersona].Tarjeta);
     printf("Direccion: %s\n\n\n",Persona[indicePersona].Direccion);
 
     if(!poseeAutos(Persona,Auto,valor,indicePersona))
     {
-        printf("\n\n\n\t\t\t\t\t~El socio no posee autos estacionados~\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
+        printf("\n\n\n\t\t\t\t\tEl socio no posee autos estacionados\n\t\t\t\t\tSera redirijido al menu principal.\n\n\n\n");
         system("pause");
 
         return;
@@ -932,7 +929,7 @@ int poseeAutos(EPersona Persona[],EAuto Auto[],int valor,int indice)
 {
 
     int flag=1;
-    printf("\n\t\t\t\t\t~Autos estacionados de %s~\n\n ",Persona[indice].NombreCompleto);
+    printf("\n\t\t\t\t\tAutos estacionados de %s\n\n ",Persona[indice].NombreCompleto);
     printf("\nLugar\tPatente\t\t\tMarca\t\t\t\n\n");
 
     for(int i=0; i<valor; i++)
@@ -980,7 +977,7 @@ void hardCodeProp(EPersona Persona[])
 {
     int id[5]= {1,2,3,4,5};
     char nombre[][50]= {"Juan","Maria","Jose","Pepito","Marcelo"};
-    char direccion[][50]= {"adrogue","burzaco","longchamp","???","¿¿¿¿"};
+    char direccion[][50]= {"adrogue","burzaco","longchamp","???","Â¿Â¿Â¿Â¿"};
     char tarjeta[][50]= {"1234 1234 1234 1234","4567 4567 4567 4567","7894 7894 7894 7894","4561 4561 4561 4561","3214 3214 3214 3214"};
 
     for(int i=0; i<5; i++)
