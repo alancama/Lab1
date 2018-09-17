@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1537189502 source:d:\clase 8\clase 8\main.c
+	<stdio.h>
+	<stdlib.h>
+	"struct.h"
+	<string.h>
+
+1537189289 d:\clase 8\clase 8\struct.h
+
